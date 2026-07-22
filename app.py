@@ -566,6 +566,10 @@ else:
                 decimals=0
             )
         )
+        
+        st.caption(
+        "사고의 위험도, 예상 보상금, 사고 발생 빈도를 종합하여 계산한 예방 우선순위입니다."
+        )
 
     with metric6:
         st.metric(
@@ -574,6 +578,10 @@ else:
                 safe_value(row, "TOPSIS_점수"),
                 decimals=4
             )
+        )
+        
+        st.caption(
+        "점수가 높을수록 예방 우선순위가 높은 사고입니다."
         )
 
     with metric7:
@@ -600,10 +608,8 @@ else:
             "초고위험 예측확률",
             probability_text
         )
-
+        
     st.divider()
-
-    st.caption("사고의 위험도, 예상 보상금, 사고 발생 빈도를 종합하여 계산한 예방 우선순위입니다.")
 
     left, right = st.columns(2)
 
@@ -629,11 +635,6 @@ else:
 
     with right:
         st.subheader("📌 기존 분석 정보")
-
-        st.write(
-            "**모델 예측등급:**",
-            safe_value(row, "모델_예측등급")
-        )
 
         st.write(
             "**주요 위험상승요인:**",
