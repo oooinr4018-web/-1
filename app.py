@@ -542,7 +542,7 @@ else:
         )
 
     with metric4:
-        accident_count = safe_value(row, "사고건수")
+        accident_count = safe_value(row, "사고빈도")
 
         if accident_count == "정보 없음":
             accident_count_text = accident_count
