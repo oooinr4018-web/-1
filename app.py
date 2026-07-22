@@ -542,7 +542,7 @@ else:
         )
 
     with metric4:
-        accident_count = safe_value(row, "사고빈도")
+        accident_count = safe_value(row, "사고건수")
 
         if accident_count == "정보 없음":
             accident_count_text = accident_count
@@ -552,7 +552,7 @@ else:
             )
 
         st.metric(
-            "사고빈도",
+            "사고건수",
             accident_count_text
         )
 
@@ -603,10 +603,15 @@ else:
 
     st.divider()
 
+    st.caption("사고의 위험도, 예상 보상금, 사고 발생 빈도를 종합하여 계산한 예방 우선순위입니다.")
+
     left, right = st.columns(2)
 
     with left:
         st.subheader("🔍 SHAP 주요 영향요인")
+        
+        st.caption("AI가 이 사고를 위험하다고 판단한 주요 원인을 보여줍니다.")
+
 
         shap_factors = get_shap_factors(row)
 
