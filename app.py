@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide"
 )
 
-DATA_FILE = "통합_사고예방_데이터.csv"
+DATA_FILE = "통합_사고예방_데이터_최종.csv.gz"
 TEMPLATE_FILE = "사고형태별_예방대책.csv"
 
 
@@ -22,7 +22,7 @@ TEMPLATE_FILE = "사고형태별_예방대책.csv"
 # --------------------------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv(DATA_FILE, encoding="utf-8-sig")
+    df = pd.read_csv(DATA_FILE,encoding="utf-8-sig",compression="gzip")
 
     search_cols = ["학교급", "사고장소", "사고시간", "사고형태"]
 
